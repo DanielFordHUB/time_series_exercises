@@ -14,14 +14,14 @@ import requests
 import pandas as pd
 
 def get_store_data_from_api():
-    response = requests.get('https://api.data.codeup.com/api/v1/stores')
+    response = requests.get('https://python.zgulde.net/api/v1/stores')
     data = response.json()
     stores = pd.DataFrame(data['payload']['stores'])
     stores = pd.DataFrame(stores)
     return stores
 
 def get_items_data_from_api():
-    domain = 'https://api.data.codeup.com'
+    domain = 'https://python.zgulde.net'
     endpoint = '/api/v1/items'
     items = []
     while True:
@@ -37,7 +37,7 @@ def get_items_data_from_api():
     return items
 
 def get_sales_data_from_api():
-    base_url = 'https://api.data.codeup.com/api/v1/sales?page='
+    base_url = 'https://python.zgulde.net/api/v1/sales?page='
     sales = []
     url = base_url + str(1)
     response = requests.get(url)
